@@ -1,9 +1,10 @@
+require('dotenv').config();
+const config = require('config')
 const express = require('express')
 const helmet = require('helmet')
 const morgan = require('morgan')
 const log = require('./middleware/logger')
 const Joi = require('joi')
-require('dotenv').config();
 
 
 
@@ -15,6 +16,11 @@ const app = express()
 app.use(express.json())
 app.use(express.static('public'))
 app.use(helmet())
+
+console.log("Application Name: " + config.get('name'));
+console.log("Mail Server : " + config.get('mail.host'));
+console.log('Mail Password:', config.get('mail.password'));
+
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('tiny'))
     console.log('morgan enabled haha!!!');

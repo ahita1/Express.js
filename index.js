@@ -1,3 +1,5 @@
+const startUpDebugger = require('debug')('app:startup')
+const dbDebugger = require('debug')('app:db')
 require('dotenv').config();
 const config = require('config')
 const express = require('express')
@@ -23,10 +25,10 @@ console.log('Mail Password:', config.get('mail.password'));
 
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('tiny'))
-    console.log('morgan enabled haha!!!');
+    startUpDebugger('morgan enabled haha!!!');
 }
 
-
+dbDebugger('connected to the database...')
 app.use(log)
 
 // const port = 3000

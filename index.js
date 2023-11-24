@@ -9,10 +9,16 @@ require('dotenv').config();
 
 const app = express()
 
+// console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
+// console.log(`app: ${app.get('env')}`);
+
 app.use(express.json())
 app.use(express.static('public'))
 app.use(helmet())
-app.use(morgan())
+if (process.env.NODE_ENV === 'development') {
+    app.use(morgan('tiny'))
+    console.log('morgan enabled haha!!!');
+}
 
 
 app.use(log)

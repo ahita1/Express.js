@@ -1,4 +1,6 @@
 const express = require('express')
+const helmet = require('helmet')
+const morgan = require('morgan')
 const log = require('./middleware/logger')
 const Joi = require('joi')
 require('dotenv').config();
@@ -9,6 +11,8 @@ const app = express()
 
 app.use(express.json())
 app.use(express.static('public'))
+app.use(helmet())
+app.use(morgan())
 
 
 app.use(log)

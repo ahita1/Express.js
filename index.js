@@ -270,19 +270,102 @@ console.log(name.replace(/ahunem/g , "Ahita"));
 console.log(name.replace(/nigussie/g , "fani"))
 
 
-const count_duplicate_characters = (str) =>  {
-    var result = {}
+// const count_duplicate_characters = (str) =>  {
+//     var result = {}
 
-    var arr = str.toLowerCase().split("").sort().join("").match(/(.)\1+/g)
+//     var arr = str.toLowerCase().split("").sort().join("").match(/(.)\1+/g)
 
+//     if (arr !== null) {
+//         arr.forEach(element => {
+//             result[element[0]] = element.length
+//         });
+//     }
+//     console.log(arr);
+//     return result
+// }
+// console.log(count_duplicate_characters("when i was a child i used to play with mud but ma mother would never been allowed for me to do so such like that things owkay haha"));
+
+
+
+
+
+
+
+
+
+const countString = (str) => {
+    let result = {}
+    let arr = str.toLowerCase().split('').sort().join('').match(/(.)\1+/g)  
     if (arr !== null) {
         arr.forEach(element => {
             result[element[0]] = element.length
         });
     }
+    console.log(arr);
     return result
 }
-console.log(count_duplicate_characters("when i was a child i used to play with mud but ma mother would never been allowed for me to do so such like that things owkay haha"));
+const result = countString("this is a test from ahitta haha")
+console.log(result);
+
+
+
+
+
+
+
+// finding the first non repeated character
+const EXTENDED_ASCII_CODES = 256
+const repeated = "ahgdfhgfaklop"
+
+const first_non_repeated_character = function(str) {
+
+    var flags = []
+    for (let i = 0; i < EXTENDED_ASCII_CODES; i++) {
+        flags.push(-1)
+    }
+
+    for (let j = 0; j< str.length; j++) {
+
+        var ch = str.charCodeAt(j)
+        if (flags[ch] == -1) {
+            flags[ch] = j
+        } else {
+            flags[ch] = -2
+        }
+    }
+
+    var position = Number.MAX_SAFE_INTEGER
+
+    for (let k = 0; k < EXTENDED_ASCII_CODES; k++) {
+        if (flags[k] > 0) {
+            position = Math.min(position, flags[k])
+        }
+    }
+
+    return str[position]
+}
+
+console.log(first_non_repeated_character(repeated));
+
+
+
+var test_string = "emocleW ot SJ ni nialP hsilgnE"
+const reverse = (test) => {
+    const reversed =  test_string.split(' ').map(item => {
+        return item.split('').reverse().join('')
+    }).join(' ')
+    return reversed
+}
+
+console.log(reverse(test_string));
+
+
+
+
+
+
+
+
 
 
 

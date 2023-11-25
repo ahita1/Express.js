@@ -420,6 +420,39 @@ const anagram = (str1, str2) => {
     return str1.split('').sort().join('') === str2.split('').sort().join('')
 }
 console.log(anagram(str1, str2));
+
+
+
+
+
+
+var a = "abcd"
+var b = "dabc"
+
+const are_anagram = function (str1, str2) {
+
+    const NO_OF_CHARS = 256
+
+    var count = [0]
+    var i = 0
+
+    for (i = 0; str1[i] && str2[i]; i++) {
+        count[str1[i]]++
+        count[str2[i]]--
+    }
+
+    if (str1[i] || str2[i]) {
+        return false
+    }
+
+    for (i = 0; i < NO_OF_CHARS; i++) {
+        if (count[i])
+            return false
+    }
+    return true
+
+}
+console.log(are_anagram(a,b));
 console.log('checking two strings are anagram of each other----------------------------------');
 
 

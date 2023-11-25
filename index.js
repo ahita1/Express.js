@@ -349,15 +349,94 @@ console.log(first_non_repeated_character(repeated));
 
 
 
+
+// reversing letters and words haha
 var test_string = "emocleW ot SJ ni nialP hsilgnE"
-const reverse = (test) => {
-    const reversed =  test_string.split(' ').map(item => {
+const reverse = (str) => {
+    return str.split(' ').map(item => {
         return item.split('').reverse().join('')
     }).join(' ')
-    return reversed
 }
 
 console.log(reverse(test_string));
+
+
+
+
+
+// generating all permutations haha
+let per = 'ABC'
+const permute_and_print =  (str) => {
+    permute("", str);
+}
+const permute = function (prefix, str) {
+    var n = str.length
+    if (n == 0) {
+        console.log(prefix + "")
+    }
+    if (n != 0) {
+        for (let i = 0; i < n; i++) {
+            permute(prefix + str.charAt(i),
+                str.substring(i + 1, n) + str.substring(0, i))
+        }
+    }
+}
+console.log(permute_and_print(per));
+
+
+console.log('Palindrome haha----------------------------------');
+let names = "coc"
+let names2 = "cocd"
+console.log(isPalindrome(names));
+
+const palind = (name) => {
+    let reversed = name.split('').reverse().join('')
+    return reversed == names
+}
+console.log(palind(names2));
+console.log('Palindrome haha----------------------------------');
+
+
+
+
+console.log('Sorting array of string with length haha----------------------------------');
+// sorting an array of strings by length haha
+let sorting = ['Ahunem' ,'nigussie', 'fanti' ,'sol']
+const sort = (str) => {
+    return str.sort((a , b) => {
+        return a.length-b.length
+    })
+}
+console.log(sort(sorting));
+let substr = "Ahunem"
+console.log(substr.includes('nem'));
+console.log('Sorting array of string with length haha----------------------------------');
+
+
+console.log('checking two strings are anagram of each other----------------------------------');
+let str1  = 'abcd'
+let str2  = 'dcba'
+const anagram = (str1, str2) => {
+    return str1.split('').sort().join('') === str2.split('').sort().join('')
+}
+console.log(anagram(str1, str2));
+console.log('checking two strings are anagram of each other----------------------------------');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

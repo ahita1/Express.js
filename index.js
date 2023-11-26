@@ -456,8 +456,48 @@ console.log(are_anagram(a,b));
 console.log('checking two strings are anagram of each other----------------------------------');
 
 
+// finding the first occurence non-repeated  character in a string
+console.log('########################################');
+const strf = 'loveleetcode'
+const firstChar = (str) => {
+    const count = {}
+    for (let char of str) {
+        count[char] = (count[char] || 0) + 1;
+    }
+    console.log(count);
+    for (let char of str) {
+        if (count[char] === 1) {
+            return char
+        }
+    }
+}
+console.log(firstChar(strf));
+console.log('########################################');
+console.log('########################################');
+let comp = 'aabcccccaaa'
+const compress = (str) => {
+    let compressed = ''
+    let count = 0
+    for (i = 0; i < str.length; i++){
+        count++;
+        if (i + 1 >= str.length || str[i] !== str[i + 1]) {
+            compressed += str[i] + count
+            count = 0
+        }
+    }
+    return compressed.length < str.length ? compressed : str
+}
+console.log(compress(comp));
+console.log('########################################');
 
 
+
+console.log('urlify########################################');
+const urlify = (str) => {
+    return str.trim().replace(/\s/g, "%20")
+}
+console.log(urlify("Mr John Smith    "));
+console.log('urlify########################################');
 
 
 

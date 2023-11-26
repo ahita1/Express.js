@@ -561,6 +561,41 @@ console.log('substring haha########################################');
 
 
 
+console.log('longest Palindrome  haha########################################');
+function longestPalindromicSubstring(str) {
+    let longest = '';
+
+    for (let i = 0; i < str.length; i++) {
+        // Check for odd-length palindromes
+        let oddPalindrome = expandFromCenter(str, i, i);
+        if (oddPalindrome.length > longest.length) {
+            longest = oddPalindrome;
+        }
+
+        // Check for even-length palindromes
+        let evenPalindrome = expandFromCenter(str, i, i + 1);
+        if (evenPalindrome.length > longest.length) {
+            longest = evenPalindrome;
+        }
+    }
+
+    return longest;
+}
+function expandFromCenter(str, left, right) {
+    while (left >= 0 && right < str.length && str[left] === str[right]) {
+        left--;
+        right++;
+    }
+    return str.slice(left + 1, right);
+}
+console.log(longestPalindromicSubstring('babad'));
+console.log('longest Palindrome haha########################################');
+
+
+
+
+
+
 
 
 

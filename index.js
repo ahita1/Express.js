@@ -503,6 +503,29 @@ console.log('urlify########################################');
 
 
 
+const permutes = (str, l, r) => {
+    if (l == r) {
+        console.log(str.join(''));
+    } else {
+        for (let i = l; i <= r; i++) {
+            [str[l], str[i]] = [str[i], str[l]];
+            permutes(str, l + 1, r);
+            [str[l], str[i]] = [str[i], str[l]];
+        }
+    }
+}
+const  stringPermutations = (str) => {
+    let arr = str.split('');
+    permutes(arr, 0, arr.length - 1);
+}
+
+stringPermutations("ABC")
+
+
+
+
+
+
 
 
 

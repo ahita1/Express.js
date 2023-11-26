@@ -502,7 +502,7 @@ console.log('urlify########################################');
 
 
 
-
+console.log('Permutations haha########################################');
 const permutes = (str, l, r) => {
     if (l == r) {
         console.log(str.join(''));
@@ -520,6 +520,43 @@ const  stringPermutations = (str) => {
 }
 
 stringPermutations("ABC")
+console.log('Permutations haha########################################');
+
+
+
+
+
+
+console.log('Balanced haha########################################');
+const isBalanced = (str) => {
+    let stack = [];
+    let map = { '(': ')', '{': '}', '[': ']' }
+    for (let char of str) {
+        if (map[char]) {
+            stack.push(map[char])
+        }
+        else {
+            if (char !== stack.pop()) {
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+}
+let brackets = "{[()]}"
+console.log(isBalanced(brackets));
+console.log('Balanced haha########################################');
+
+
+console.log('substring haha########################################');
+let mainString = "Ahunem"
+let substrings = "nem"
+const checkSubstring = (a, b) => {
+    return mainString.includes(substrings)
+}
+console.log(checkSubstring(mainString , substrings));
+console.log('substring haha########################################');
+
 
 
 

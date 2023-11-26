@@ -591,6 +591,29 @@ console.log('longest Palindrome haha########################################');
 
 
 
+console.log('atoi haha########################################');
+const atoi = (str) => {
+    let trimmed = str.trim().replace(/[^+\-\d]/g, '')
+    return parseInt(trimmed) +1
+}
+const atoi_str = "   -hello36453654h"
+console.log(atoi(atoi_str));
+console.log('atoi haha########################################');
+let sentence = "when i was a child i used to look on with those dangerous peoples haha"
+console.log(sentence.includes('look on', 30)); // false
+console.log(sentence.match("was"));
+
+let evals = '2+45+7'
+console.log(eval(evals));
+console.log(evals.search('9'));
+console.log(evals.indexOf('9'));
+console.log(evals.includes('4'));
+
+
+
+
+
+
 
 
 

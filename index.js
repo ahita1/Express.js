@@ -552,7 +552,7 @@ console.log('substring haha########################################');
 let mainString = "Ahunem"
 let substrings = "nem"
 const checkSubstring = (a, b) => {
-    return mainString.includes(substrings)
+    return mainString.indexOf(substrings) !== -1;
 }
 console.log(checkSubstring(mainString , substrings));
 console.log('substring haha########################################');

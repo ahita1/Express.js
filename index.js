@@ -611,6 +611,74 @@ console.log(evals.includes('4'));
 
 
 
+let separat = 'Ahita l0.9ikes Inabcabcd787ex of the indirect 7678fillbingsaaaaaa'
+console.log(separat.split('i').join(''))
+console.log(separat.match(/[ahi]/g ).join(''));
+console.log(separat.match(/[ahi]/g).join(''));
+console.log(separat.match(/[a-z]/g).join(''));
+console.log(separat.match(/[A-Z]/g).join(''));
+console.log(separat.match(/[0-9/]/g).join(''));
+console.log(separat.match(/[abc]/g).join(''));
+console.log(separat.match(/abc/g).join(''));
+console.log(separat.match(/\d/g).join(''));
+console.log(separat.match(/\D/g).join(''));
+console.log(separat.match(/\w/g).join(''));
+console.log(separat.match(/\s/g).join(''));
+console.log(separat.match(/abc/g).join(''));
+console.log(separat.match(/[ab]/g).join(''));
+
+
+console.log(parseInt("  -42".trim().match(/[0-9\-]/g).join('')));
+console.log(parseInt("42".trim().match(/[0-9\-]/g).join('')));
+console.log(parseInt("4193 with words".trim().match(/[0-9\-]/g).join('')));
+
+
+
+console.log('##################################################');
+console.log('anagram checking haha');
+let anag1 = 'tea'
+let anag2 = 'ate'
+const anagrams = (str1, str2) => {
+    const anag = (str) => {
+        return str.replace(/\w/g, '').toLowerCase().split().sort().join('')
+    }
+    return anag(str1) === anag(str2)
+}
+console.log(anagrams(anag1, anag2));
+console.log('##################################################');
+
+console.log('##################################################');
+let lol = "characters haha"
+let lolss = lol.trim().replace(/\s/g , '')
+const charCount = (str) => {
+    let counts = {}
+    for (let char of str) {
+        counts[char] = counts[char] ? counts[char] + 1 : 1;
+    }
+    return counts
+}
+console.log(charCount(lolss));
+console.log('##################################################');
+
+
+
+console.log('Title haha##################################################');
+console.log('conversting a string to a title haha');
+let format = 'the hyeNa fast fast eat the ox antena haha'
+const formats = (str) => {
+    return str.toLowerCase().split(' ').map(item => item[0].toUpperCase() + item.slice(1)).join(' ')
+}
+console.log(formats(format));
+console.log('##################################################');
+
+
+
+
+console.log('##################################################');
+// replacing a substring globally in a case insensetive manner globally
+let text = "The rain in SPAIN stays mainly in the plain";
+console.log(text.replace(/ain/gi , 'ooo'));
+console.log('##################################################');
 
 
 
@@ -618,6 +686,24 @@ console.log(evals.includes('4'));
 
 
 
+
+
+
+let cases = 'Ahunem Nigussie.fanti'
+function toCamelCase(str) {
+    return str
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
+}
+function toSnakeCase(str) {
+    return str
+        .toLowerCase()
+        .replace(/\W/g, '_');
+}
+
+console.log(toCamelCase(str));
+console.log(toSnakeCase(cases));
+console.log(btoa(cases));
 
 
 

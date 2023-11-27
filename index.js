@@ -781,8 +781,32 @@ console.log(`Hey ${first_name}: the time is now: [${time}]`);
 
 console.log('verify email haha---------------------------------');
 let email = 'this is Ahunem Nigussie email: ahitafani833@gmail.com who sends email to his friend andualem with email address: andi@gmail.com who is the best pure man from which ahita have ever seen but soll is the most true and loveable person from which i have ever seen haha... i used to contact him with email address of soll_mirtas@gmail.com'
-console.log(email.match(/[\w.-]+@[\w.-]+\.\w+/g).join(' '));
+console.log(email.match(/[\w.-]+@[\w.-]+\.\w+/g)) || [];
 console.log('verify email haha---------------------------------');
+
+
+
+
+
+console.log('Ceasar Cipher haha---------------------------------');
+function caesarCipher(str, shift) {
+    return str.replace(/[a-z]/gi, (char) => 
+        String.fromCharCode(char.charCodeAt(0) + (char.toLowerCase() <= 'z' ? shift : -shift))
+    );
+}
+console.log(caesarCipher('Ahunem' , 5));
+console.log('Ceasar Cipher  haha---------------------------------');
+
+
+
+console.log('Alphanumeric  haha---------------------------------');
+const isAlphaNumeric = (str) => {
+    return /^[a-z0-9]+$/i.test(str)
+    
+}
+let input = 'AhunemMM'
+console.log(isAlphaNumeric(input));
+console.log('Alphanumeric haha---------------------------------');
 
 
 

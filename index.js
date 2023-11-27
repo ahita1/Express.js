@@ -113,7 +113,7 @@ console.log(trim_str);
 console.log("-----------------------------------------");
 
 
-// Splits a string into an array of strings.
+// Splits a string into an array of characters haha.
 console.log("-----------------------------------------");
 const splitting = (str) => {
     return str.split('')
@@ -799,12 +799,12 @@ console.log('Ceasar Cipher  haha---------------------------------');
 
 
 
-console.log('Alphanumeric  haha---------------------------------');
+console.log('checking for Alphanumeric characters with the test() mothod  haha---------------------------------');
 const isAlphaNumeric = (str) => {
+    // return /^[a-z0-9]+$/i.test(str)
     return /^[a-z0-9]+$/i.test(str)
-    
 }
-let input = 'AhunemMM'
+let input = '78789w7e.67jsdhgdhfgdf'
 console.log(isAlphaNumeric(input));
 console.log('Alphanumeric haha---------------------------------');
 

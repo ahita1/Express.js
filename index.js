@@ -841,6 +841,37 @@ console.log(formatJson(response));
 
 
 
+let header = "Authorization: Bearer ABCDE12345";
+const extracting = (str) => {
+    const match = str.match(/^Authorization: Bearer (.+)/i)
+    return match ? match[1] : null;
+}
+console.log(extracting(header));
+
+
+let params = { name: 'John', age: 30 };
+console.log(JSON.stringify(params));
+
+
+
+
+
+
+let largeText = "Hello world. This is a sample text. Hello world!";
+function wordFrequency(text) {
+    const words = text.split(/\s+/);
+    const frequency = {};
+    words.forEach(word => {
+        if (word) frequency[word.toLowerCase()] = (frequency[word.toLowerCase()] || 0) + 1;
+    });
+    return frequency;
+}
+console.log(wordFrequency(largeText)); // Output: Frequency map of each word
+
+
+
+
+
 
 
 

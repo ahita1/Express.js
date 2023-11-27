@@ -654,6 +654,8 @@ const charCount = (str) => {
     let counts = {}
     for (let char of str) {
         counts[char] = counts[char] ? counts[char] + 1 : 1;
+        // counts[char] = (counts[char] || 0) + 1;
+
     }
     return counts
 }
@@ -690,20 +692,98 @@ console.log('##################################################');
 
 
 let cases = 'Ahunem Nigussie.fanti'
-function toCamelCase(str) {
+const toCamelCase = (str) => {
     return str
         .toLowerCase()
         .replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 }
-function toSnakeCase(str) {
+const toSnakeCase = (str) => {
     return str
         .toLowerCase()
         .replace(/\W/g, '_');
 }
+const encode = (str) => {
+    return btoa(str)
+}
+const decode = (str) => {
+    return atob(str)
+}
 
+
+const characterFrequency = (str) => {
+    return str.replace(/\W/g , '').split('').reduce((acc, char) => {
+        acc[char] = (acc[char] || 0) + 1;
+        return acc;
+    },{});
+}
+
+
+
+
+const countVowels = (str) => {
+    return str.split('').filter(char => 'aeiou'.includes(char.toLowerCase())).length;
+}
+
+function UpperCase(str) {
+    return str.split('').map(char => char.toUpperCase()).join('');
+}
+
+
+function removeCharacter(str, charToRemove) {
+    return str.split('').filter(char => char !== charToRemove).join('');
+}
+const resuEncode = encode(cases)
 console.log(toCamelCase(str));
 console.log(toSnakeCase(cases));
-console.log(btoa(cases));
+console.log(resuEncode);
+console.log(decode(resuEncode));
+console.log(characterFrequency(cases));
+console.log(countVowels(cases));
+console.log(UpperCase(cases));
+console.log(removeCharacter(cases, 'a'));
+console.log(cases.replace(/[a]/g , ''));
+
+
+
+
+
+
+
+console.log('URL Slug Creation--------------------------------------------');
+// 1. URL Slug Creation
+function createSlug(title) {
+    return title
+        .toLowerCase()
+        .replace(/[^a-z0-9 -]/g, '') // Remove invalid chars
+        .replace(/\s+/g, '-')        // Replace spaces with -
+        .replace(/-+/g, '-');        // Replace multiple - with single -
+}
+// 2. URL Slug Creation
+let slug = 'My  Ne+w Bl-og Post!'
+let editSlug = slug.split(' ').map(item => item.replace(/[\W]/g , '')).join(' ')
+console.log(editSlug.toLowerCase().replace(/\s+/g, '-').replace(/-+/g, '-'));
+console.log(createSlug(slug));
+console.log('URL Slug Creation--------------------------------------------');
+
+
+
+function parseQueryString(queryString) {
+    return Object.fromEntries(new URLSearchParams(queryString));
+}
+let query = '?name=ahita&age=23&sex=male'
+console.log(parseQueryString(query));
+
+let first_name = "Ahunem"
+let time = new Date().toISOString()
+console.log(`Hey ${first_name}: the time is now: [${time}]`);
+
+
+
+console.log('verify email haha---------------------------------');
+let email = 'this is Ahunem Nigussie email: ahitafani833@gmail.com who sends email to his friend andualem with email address: andi@gmail.com who is the best pure man from which ahita have ever seen but soll is the most true and loveable person from which i have ever seen haha... i used to contact him with email address of soll_mirtas@gmail.com'
+console.log(email.match(/[\w.-]+@[\w.-]+\.\w+/g).join(' '));
+console.log('verify email haha---------------------------------');
+
 
 
 

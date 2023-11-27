@@ -814,6 +814,17 @@ console.log('Alphanumeric haha---------------------------------');
 
 
 
+function summarizePrice(data) {
+    return data.split('\n')
+               .map(line => parseFloat(line.split(',')[1]))
+               .reduce((sum, price) => sum + price, 0);
+}
+let data = "Product,34\nWidget,19.99\nGadget,25.50\nDoodad,5.00";
+console.log(summarizePrice(data));
+
+
+
+
 
 
 

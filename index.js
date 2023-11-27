@@ -295,13 +295,13 @@ console.log(name.replace(/nigussie/g , "fani"))
 
 const countString = (str) => {
     let result = {}
-    let arr = str.toLowerCase().split('').sort().join('').match(/(.)\1+/g)  
+    let arr = str.toLowerCase().split('').sort().join('').match(/(. )\1+/g)  
     if (arr !== null) {
         arr.forEach(element => {
             result[element[0]] = element.length
         });
     }
-    console.log(arr);
+    // console.log(arr);
     return result
 }
 const result = countString("this is a test from ahitta haha")
@@ -588,6 +588,7 @@ function expandFromCenter(str, left, right) { //str , 2 , 2 , str = 'babad' str.
 }
 console.log(longestPalindromicSubstring('babad'));
 console.log('longest Palindrome haha########################################');
+
 
 
 

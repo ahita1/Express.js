@@ -813,11 +813,8 @@ console.log('Alphanumeric haha---------------------------------');
 
 
 
-
-function summarizePrice(data) {
-    return data.split('\n')
-               .map(line => parseFloat(line.split(',')[1]))
-               .reduce((sum, price) => sum + price, 0);
+const summarizePrice = (str) => {
+    return str.split('\n').map(word => parseFloat(word.split(',')[1])).reduce((sum , elem) => sum + elem , 0) 
 }
 let data = "Product,34\nWidget,19.99\nGadget,25.50\nDoodad,5.00";
 console.log(summarizePrice(data));
@@ -825,6 +822,19 @@ console.log(summarizePrice(data));
 
 
 
+
+//All about formatting APIResponse haha
+let response = '{"name":"John","age":30,"address":"123 Main St" , "binary" : "001011"}';
+const formatJson = (jsonString) => {
+    const jsonObject = JSON.parse(jsonString)
+    let sortedKeys = Object.keys(jsonObject).sort()
+    let sortedObject = {}
+    for (let key of sortedKeys) {
+        sortedObject[key] = jsonObject[key]
+    }
+    return JSON.stringify(sortedObject)
+}
+console.log(formatJson(response));
 
 
 

@@ -857,16 +857,101 @@ console.log(JSON.stringify(params));
 
 
 
+// let largeText = "Hello world. This is a sample text. Hello world!";
+// function wordFrequency(text) {
+//     const words = text.split(/\s+/);
+//     const frequency = {};
+//     words.forEach(word => {
+//         if (word) frequency[word.toLowerCase()] = (frequency[word.toLowerCase()] || 0) + 1;
+//     });
+//     return frequency;
+// }
+// console.log(wordFrequency(largeText)); // Output: Frequency map of each word
+
 let largeText = "Hello world. This is a sample text. Hello world!";
-function wordFrequency(text) {
-    const words = text.split(/\s+/);
-    const frequency = {};
-    words.forEach(word => {
-        if (word) frequency[word.toLowerCase()] = (frequency[word.toLowerCase()] || 0) + 1;
+const countStrings = (str) => {
+    let counts = {}
+    let arr = []
+    str.split(/\s+/g).map(word => {
+        if (word) counts[word.toLowerCase()] = (counts[word.toLowerCase()] || 0) + 1;
     });
-    return frequency;
+    // return counts
+    arr = Object.keys(counts).sort()
+    const sortedObject = {}
+    for (let key of arr) {
+        sortedObject[key] = counts[key]
+    }
+    let maxNumber = 0
+    let maxWord = ''
+    for (let word in sortedObject) {
+        if (sortedObject[word] > maxNumber) {
+            maxNumber = sortedObject[word]
+            maxWord = word
+        }
+    }
+    console.log(`the most frequent word is: "${maxWord}" with max count of ${maxNumber}`);
+    console.log(sortedObject);
+    const jsonString = JSON.stringify(sortedObject)
+    console.log(jsonString);
+    return JSON.parse(jsonString)
+
+
 }
-console.log(wordFrequency(largeText)); // Output: Frequency map of each word
+console.log(countStrings(largeText));
+
+
+
+let headerss = "Authorization: Bearer ABCDE12345";
+
+console.log(headerss.replace(/Authorization: Bearer\s+/gi, ''));
+
+
+
+let userAgent = "Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion";
+console.log(userAgent.split(' ')[0]);
+
+
+let error = new Error("Sample error message");
+console.log(`${new Date().toISOString()} ${error.name} : ${error.message}`);
+
+
+
+let length = 10;
+
+function generateSessionId(length) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++){
+        result += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return result
+}
+
+console.log(generateSessionId(length));
+
+
+
+let urlEncodedString = "Hello%20World%21";
+const decoding = decodeURIComponent(urlEncodedString)
+console.log(decoding);
+console.log(encodeURIComponent(decoding));
+
+
+
+//name=john&age=30
+let paramss = { name: 'John', age: 30 };
+const serializing = (param) => {
+    return Object.keys(param).
+        map(item => `${encodeURIComponent(item)} = ${encodeURIComponent(param[item])}`).
+        join('&')
+}
+console.log(serializing(paramss));
+
+
+
+let url = "https://subdomain.example.com/page";
+let regex= url.match(/\/\/([^\/]+)\//g).join('')
+console.log(regex.match(/[^\/\/]+/)[0].split('.')[0]);
 
 
 

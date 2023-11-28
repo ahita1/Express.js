@@ -957,6 +957,17 @@ console.log(regex.match(/[^\/\/]+/)[0].split('.')[0]);
 
 
 
+let logEntry = "2021-03-15 10:05:33: [INFO] Server started successfully";
+const logEnt = (str) => {
+    let data = str.match(/(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2}:\d{2}): \[(\w+)\] (.+)/)
+    if (!data)
+        return null
+    return data
+
+}
+const results = logEnt(logEntry)
+console.log(results.map(items => {return items})[4]);
+
 
 
 

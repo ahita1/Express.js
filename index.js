@@ -8,6 +8,8 @@ const morgan = require('morgan')
 const log = require('./middleware/logger')
 const Joi = require('joi')
 const app = express()
+
+app.set('view engine', 'pug')
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 // console.log(`app: ${app.get('env')}`);
 app.use(express.json())

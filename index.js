@@ -1,4 +1,5 @@
 const startUpDebugger = require('debug')('app:startup')
+const path = require('path');
 const dbDebugger = require('debug')('app:db')
 require('dotenv').config();
 const config = require('config')
@@ -10,6 +11,7 @@ const Joi = require('joi')
 const app = express()
 
 app.set('view engine', 'pug')
+app.set('views', '/views')          //default haha
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 // console.log(`app: ${app.get('env')}`);
 app.use(express.json())
@@ -35,7 +37,7 @@ const courses = [
     { id: 3, name: 'Python' },
 ]
 app.get('/', (req, res) => {
-    res.send("hello Ahita, how are you haha, don't worry everything is gonna be alright owkay haha")
+    res.render('index' , {title : 'My Express App' , message : 'Hello Ahita haha'})
 })
 
 app.get('/api/courses', (req, res) => {
@@ -93,6 +95,3 @@ const port  = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`server is listening on port ${port}...`);
 })
-findCombinationsFromText('Category_Switches-Group_Electric-Pallet-Jack-Parts-Subcategory_Ignition-Switch')
-const findCombinationsFromText = (str) => {
-}

@@ -7,14 +7,9 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const log = require('./middleware/logger')
 const Joi = require('joi')
-
-
-
 const app = express()
-
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 // console.log(`app: ${app.get('env')}`);
-
 app.use(express.json())
 app.use(express.static('public'))
 app.use(helmet())
@@ -30,21 +25,6 @@ if (process.env.NODE_ENV === 'development') {
 
 dbDebugger('connected to the database...')
 app.use(log)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const port = 3000
 const courses = [
@@ -75,14 +55,12 @@ app.post('/api/courses', (req, res) => {
 app.get('/api/posts/:year/:month', (req, res) => {
     res.send(req.query)
 })
-
 app.get('/api/courses/:id', (req, res) => {
     const course = courses.find(u => u.id === parseInt(req.params.id))
     if (!course)
         return res.status(404).send("a course with this id was not found haha")
     res.send(course)
 })
-
 app.put('/api/courses/:id', (req, res) => {
 
     const course = courses.find(u => u.id === parseInt(req.params.id))
@@ -95,19 +73,14 @@ app.put('/api/courses/:id', (req, res) => {
     course.name = req.body.name
     res.send(course)
 })
-
-
 app.delete('/api/courses/:id', (req, res) => {
     const course = courses.find((u) => u.id === parseInt(req.params.id))
     if (!course)
         return res.status(404).send('A Course With The Given Id Was Not Found haha!!!')
     const index = courses.indexOf(course)
-    courses.splice(index, 1)
-
-    res.send(course)
-
+  courses.splice(index, 1)
+  res.send(course)
 })
-
 const validate = (course) => {
     const schema = Joi.object({
         name: Joi.string().min(3).required()
@@ -118,11 +91,6 @@ const port  = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`server is listening on port ${port}...`);
 })
-
 findCombinationsFromText('Category_Switches-Group_Electric-Pallet-Jack-Parts-Subcategory_Ignition-Switch')
-
 const findCombinationsFromText = (str) => {
-
 }
-
-

@@ -1,6 +1,5 @@
-import { Router } from 'express'
-const router = Router()
-
+const express = require('express')
+const router = express.Router();
 
 const courses = [
     { id: 1, name: 'C++' },
@@ -61,4 +60,4 @@ const validate = (course) => {
 }
 
 
-export default router
+module.exports = router

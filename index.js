@@ -5,7 +5,12 @@ require('dotenv').config();
 const config = require('config')
 const express = require('express')
 const helmet = require('helmet')
+
+
 const courses = require('./routes/courses')
+const home = require('./routes/home')
+
+
 const morgan = require('morgan')
 const log = require('./middleware/logger')
 const Joi = require('joi')
@@ -19,6 +24,7 @@ app.use(express.json())
 app.use(express.static('public'))
 app.use(helmet())
 app.use('/api/courses' , courses)
+app.use('/' , home)
 
 console.log("Application Name: " + config.get('name'));
 console.log("Mail Server : " + config.get('mail.host'));
@@ -34,9 +40,7 @@ app.use(log)
 
 // const port = 3000
 
-app.get('/', (req, res) => {
-    res.render('index', { title: 'My Express App', message: 'Hello Ahita haha' });
-});
+
 const port  = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`server is listening on port ${port}...`);

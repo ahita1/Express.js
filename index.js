@@ -1,7 +1,7 @@
 const startUpDebugger = require('debug')('app:startup')
 const path = require('path');
 const dbDebugger = require('debug')('app:db')
-require('dotenv').config();
+require('dotenv').config();     
 const config = require('config')
 const express = require('express')
 const helmet = require('helmet')
@@ -11,7 +11,7 @@ const Joi = require('joi')
 const app = express()
 
 app.set('view engine', 'pug')
-app.set('views', '/views')          //default haha
+app.set('views', './views')          //default haha
 // console.log(`NODE_ENV: ${process.env.NODE_ENV}`);
 // console.log(`app: ${app.get('env')}`);
 app.use(express.json())
@@ -37,8 +37,8 @@ const courses = [
     { id: 3, name: 'Python' },
 ]
 app.get('/', (req, res) => {
-    res.render('index' , {title : 'My Express App' , message : 'Hello Ahita haha'})
-})
+    res.render('index', { title: 'My Express App', message: 'Hello Ahita haha' });
+});
 
 app.get('/api/courses', (req, res) => {
     res.send(courses)
